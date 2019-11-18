@@ -1,20 +1,13 @@
 console.log('Hello World!')
 
 
-var fs = require('fs');
 var http = require('http');
-var https = require('https');
-var privateKey  = fs.readFileSync('plync/server.key', 'utf8');
-var certificate = fs.readFileSync('plync/server.cert', 'utf8');
-
-var credentials = {key: privateKey, cert: certificate};
 var express = require('express');
 var app = express();
 
 // your express configuration here
 
 var server = http.createServer(app);
-//var server = https.createServer(credentials, app);
 
 server.listen(3000, () => console.log(`Example app listening on port 3000!`));
 
