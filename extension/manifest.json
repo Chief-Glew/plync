@@ -1,0 +1,44 @@
+{
+  "name": "Plync",
+  "version": "1.0",
+  "description": "Sync, Play, Love",
+  "content_security_policy": "script-src 'self' https://cdn.socket.io/socket.io-1.4.5.js; object-src 'self'",
+  "background": {
+    "scripts": ["bundledBackground.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+   {
+     "matches": ["https://amazon.co.uk/*", "http://amazon.co.uk/*", "https://*.amazon.co.uk/*", "http://*.amazon.co.uk/*"],
+     "js": ["aVShare2.js"]
+   }
+ ],
+ "web_accessible_resources": ["test2.js"],
+  "page_action": {
+      "default_popup": "popup.html"
+    },
+  "permissions": ["declarativeContent", "storage", "activeTab" ],
+  "commands": {
+    "play" : {
+      "suggested_key": {
+        "default": "Alt+Shift+S" 
+      },
+      "description": "play/pause"
+    },
+    "_execute_browser_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y",
+        "chromeos": "Ctrl+Shift+U",
+        "linux": "Ctrl+Shift+J"
+      }
+    },
+    "_execute_page_action": {
+      "suggested_key": {
+        "default": "Ctrl+M"
+      }
+    }
+  },
+    "manifest_version": 2
+
+}
